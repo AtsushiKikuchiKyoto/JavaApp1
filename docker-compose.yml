@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:8080"
+    volumes:
+      - .:/app
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/first_app_java
       - SPRING_DATASOURCE_USERNAME=root
