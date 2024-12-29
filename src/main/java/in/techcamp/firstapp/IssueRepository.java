@@ -13,4 +13,7 @@ public interface IssueRepository {
 
     @Insert("insert into issues (title, content, period, importance) values (#{title}, #{content}, #{period}, #{importance})")
     void insert(String title , String content , String period , Character importance);
+
+    @Select("select * from issues where id = #{id}")
+    IssueEntity findById(long id);
 }
