@@ -13,6 +13,13 @@ public class IssueController {
 
     private final IssueRepository issueRepository;
 
+    @GetMapping("/")
+    public String showIssues(Model model){
+        var issueList = issueRepository.findAll();
+        model.addAttribute("issueList", issueList);
+        return "index";
+    }
+
     @GetMapping("/issueForm")
     public String showIssueForm(@ModelAttribute("issueForm") IssueForm form){
         return "issueForm";
