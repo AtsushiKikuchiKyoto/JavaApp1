@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css" /> -->
+  <title>グループ会計 | group form</title>
+</head>
+<body>
+
+<header>
+  <p class="textL"><a th:href="@{/kaikei}">Group 会計</a></p>
+</header>
+
+<div class="page-title">
+  <h1>会計新規登録</h1>
+</div>
+
+<div class="center">
+  <form action="" method="post" class="">
+    <div class="direct">
+      <label for="name" class="textS">会計名</label>
+      <input type="text" name="name" id="name" class="boxS textS" required />
+    </div>
+    <div class="direct">
+      <label for="name" class="textS">年度(西暦)</label>
+      <input type="number" value="2024" min="2000" max="2100" name="year" id="year" class="boxS textS" required />
+    </div>
+    <div class="direct">
+      <label for="name" class="textS">開始日</label>
+      <input type="date" value="2024-04-01" name="start" id="start" class="boxS textS" required />
+    </div>
+    <div class="direct">
+      <input type="submit" value="新規登録" class="buttonL textS borderS" />
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
