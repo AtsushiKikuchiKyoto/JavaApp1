@@ -25,7 +25,10 @@ input, textarea {
 body {
    color: #2c3e50;
 }
-
+a {
+   text-decoration: none;
+   color: black;
+}
 header {
    height: 80px;
    width: 100%;
