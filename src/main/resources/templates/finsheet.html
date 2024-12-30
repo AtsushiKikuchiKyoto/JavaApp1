@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css" /> -->
+  <title>グループ会計 | MenuPage</title>
+</head>
+<body>
+
+<header>
+  <p class="textL"><a th:href="@{/kaikei}">Group 会計</a></p>
+</header>
+
+<div class="page-title">
+  <h1>メニュー</h1>
+</div>
+
+<div class="center">
+  <a th:href="@{/kaikei/finsheetForm}" class="buttonL center">
+    <p class="textM">会計入力</p>
+  </a>
+</div>
+
+<div class="center">
+  <div class="buttonL center">
+    <p class="textM">会計出力</p>
+  </div>
+</div>
+
+<hr align="center" width="80%">
+
+<div class="page-title">
+  <h1>会計表示</h1>
+</div>
+
+<form action="">
+  <div class="center">
+    <select name="" id="" class="textM marginPadding buttonL textCenter">
+      <option value="">-表示項目-</option>
+      <option value="1">出納帳</option>
+      <option value="2">費目別会計</option>
+    </select>
+  </div>
+</form>
+
+<div class="center">
+  <table>
+    <thead>
+      <th scope="row">年</th>
+      <th scope="row">会計区分</th>
+      <th scope="row">費目大</th>
+      <th scope="row">費目中</th>
+      <th scope="row">費目小</th>
+      <th scope="row">内容</th>
+      <th scope="row">日付</th>
+      <th scope="row">支出額</th>
+      <th scope="row">収入額</th>
+      <th scope="row">口座</th>
+    </thead>
+    <tbody>
+      <td>2024</td>
+      <td>一般</td>
+      <td>-</td>
+      <td>運営費</td>
+      <td>地域負担金</td>
+      <td>自治連合会負担金</td>
+      <td>2024-04-28</td>
+      <td>10000</td>
+      <td></td>
+      <td>A銀行</td>
+    </tbody>
+    <tbody>
+      <td>2024</td>
+      <td>一般</td>
+      <td>-</td>
+      <td>事業費</td>
+      <td>祭事費</td>
+      <td>運動会打ち上げ消耗品</td>
+      <td>2024-05-03</td>
+      <td>4000</td>
+      <td></td>
+      <td>A銀行</td>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
