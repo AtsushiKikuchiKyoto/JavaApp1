@@ -26,7 +26,7 @@
   <ul class="hovee">
     <li class="textM marginPadding buttonL textCenter">-団体を選択-</li>
     <ul th:each="group:${groupList}" class="hover">
-      <li class="textM marginPadding buttonL textCenter"><a href="#" th:text="${group.getName()}"></a></li>
+      <li class="textM marginPadding buttonL textCenter"><a th:href="@{'/kaikei/finbook/' + ${group.id}}" th:text="${group.name}"></a></li>
     </ul>
   </ul>
 </div>
