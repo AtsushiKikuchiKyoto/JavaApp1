@@ -124,6 +124,12 @@ header a {
    border-radius: 5px;
    width: 250px;
 }
+.buttonSS {
+   margin: 10px;
+   padding: 10px;
+   background-color: lightblue;
+   border-radius: 5px;
+}
 .center {
    margin: 10px;
    padding: 10px;
