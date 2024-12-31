@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
   <title>グループ会計 | finbook</title>
 </head>
 <body>
@@ -21,12 +21,12 @@
     <tr>
       <th class="textM">団体名</th>
       <td class="textS" th:text="${group.name}"></td>
-      <td><button>団体情報の編集</button></td>
+      <td class="textS"><div class="buttonSS"><a th:href="@{/kaikei/groupForm/{groupId}(groupId=${group.id})}">団体情報の編集</a></div></td>
     </tr>
     <tr>
       <th class="textM">情報</th>
       <td class="textS" th:text="${group.info}"></td>
-      <td><button>団体情報の削除</button></td>
+      <td><form method="post"><button type="submit" th:formaction="@{/kaikei/group/{groupId}/delete(groupId=${group.id})}" class="buttonSS borderS textS">団体情報の削除</button></form></td>
     </tr>
   </table>
 </div>

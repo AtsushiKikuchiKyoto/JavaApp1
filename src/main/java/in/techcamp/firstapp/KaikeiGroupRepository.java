@@ -1,9 +1,6 @@
 package in.techcamp.firstapp;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,4 +16,9 @@ public interface KaikeiGroupRepository {
     @Select("SELECT * FROM groupDemo WHERE id = #{id}")
     KaikeiGroupEntity findById(@Param("id") Long id);
 
+    @Update("UPDATE groupDemo SET name = #{name}, info = #{info} WHERE id = #{id}")
+    void update(long id, String name, String info);
+
+    @Delete("DELETE FROM groupDemo WHERE id = #{id}")
+    void deleteById(Long id);
 }
