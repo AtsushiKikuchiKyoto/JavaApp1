@@ -13,7 +13,22 @@
 </header>
 
 <div class="page-title">
-  <h1>会計</h1>
+  <h1 th:text="${group.name} + ' 会計'"></h1>
+</div>
+
+<div class="center">
+  <table>
+    <tr>
+      <th class="textM">団体名</th>
+      <td class="textS" th:text="${group.name}"></td>
+      <td><button>団体情報の編集</button></td>
+    </tr>
+    <tr>
+      <th class="textM">情報</th>
+      <td class="textS" th:text="${group.info}"></td>
+      <td><button>団体情報の削除</button></td>
+    </tr>
+  </table>
 </div>
 
 <div class="center">

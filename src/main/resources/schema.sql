@@ -11,3 +11,10 @@ CREATE TABLE IF NOT EXISTS issues (
     importance VARCHAR(256) NOT NULL,
 PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS groupDemo (
+    id     INT    NOT NULL AUTO_INCREMENT,
+    name   VARCHAR(256) NOT NULL,
+    info   VARCHAR(256) NOT NULL,
+PRIMARY KEY (id)
+);

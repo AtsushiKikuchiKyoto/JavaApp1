@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
   <title>グループ会計 | group</title>
 </head>
 <body>
@@ -23,12 +23,15 @@
 </div>
 
 <div class="center">
-  <select name="" id="" class="textM marginPadding buttonL textCenter">
-    <option value="">-団体を選択-</option>
-    <option value="1">AAA自治会</option>
-    <option value="2">XXX消防団</option>
-  </select>
+  <ul class="hovee">
+    <li class="textM marginPadding buttonL textCenter">-団体を選択-</li>
+    <ul th:each="group:${groupList}" class="hover">
+      <li class="textM marginPadding buttonL textCenter"><a th:href="@{'/kaikei/finbook/' + ${group.id}}" th:text="${group.name}"></a></li>
+    </ul>
+  </ul>
 </div>
+
+</style>
 
 </body>
 </html>

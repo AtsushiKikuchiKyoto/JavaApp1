@@ -182,6 +182,16 @@ th,td {
   border: 1px solid gray;
   padding: 6px 8px;
 }
+li {
+   list-style: none;
+}
+.hover {
+   display: none;
+}
+.hovee:hover .hover  {
+   display: block;
+}
+
 /********************************************
 新規作成画面
 *********************************************/

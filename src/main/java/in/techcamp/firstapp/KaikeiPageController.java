@@ -10,16 +10,6 @@ public class KaikeiPageController {
         return "kaikei";
     }
 
-    @GetMapping("/kaikei/group")
-    public String showGroup(){
-        return "group";
-    }
-
-    @GetMapping("/kaikei/groupForm")
-    public String showGroupForm(){
-        return "groupForm";
-    }
-
     @GetMapping("/kaikei/finbook")
     public String showFinbook(){
         return "finbook";
