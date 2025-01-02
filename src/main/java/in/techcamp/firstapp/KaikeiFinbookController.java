@@ -24,8 +24,13 @@ public class KaikeiFinbookController {
         return "finbook";
     }
 
-    @GetMapping("/kaikei/finbookForm")
-    public String showFinbookForm(@ModelAttribute("finbookForm") KaikeiFinbookForm form ){
+    @GetMapping("/kaikei/finbookForm/{id}")
+    public String showFinbookForm(@PathVariable("id") Long id,
+                                  Model model ,
+                                  @ModelAttribute("finbookForm") KaikeiFinbookForm form ){
+        var group = kaikeiGroupRepository.findById(id);
+        form.setName(group.getName());
+        model.addAttribute("group", group);
         return "finbookForm";
     }
 

@@ -20,7 +20,7 @@
   <form th:action="@{/kaikei/finbookForm}" method="post" th:object="${finbookForm}" class="">
     <div class="direct">
       <label class="textS">会計名</label>
-      <input type="text" th:field="*{name}" class="boxS textS" required />
+      <input type="text" th:field="*{name}" th:value="${group.name}" class="boxS textS" required />
     </div>
     <div class="direct">
       <label class="textS">年度(西暦)</label>
