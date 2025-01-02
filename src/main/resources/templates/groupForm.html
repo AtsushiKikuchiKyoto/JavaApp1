@@ -17,7 +17,7 @@
 </div>
 
 <div class="center">
-  <form th:action="@{/kaikei/groupForm}" th:method="post" th:object="${groupForm}" class="">
+  <form th:action="@{/kaikei/kaikeiGroupForm}" th:method="post" th:object="${kaikeiGroupForm}" class="">
     <div class="direct">
       <label class="textS">団体名</label>
       <input type="text" th:field="*{name}" class="boxS textS" required />

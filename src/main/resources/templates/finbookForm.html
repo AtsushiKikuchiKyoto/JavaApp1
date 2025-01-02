@@ -17,18 +17,26 @@
 </div>
 
 <div class="center">
-  <form action="" method="post" class="">
+  <form th:action="@{/kaikei/finbookForm}" method="post" th:object="${finbookForm}" class="">
     <div class="direct">
-      <label for="name" class="textS">会計名</label>
-      <input type="text" name="name" id="name" class="boxS textS" required />
+      <label class="textS">会計名</label>
+      <input type="text" th:field="*{name}" class="boxS textS" required />
     </div>
     <div class="direct">
-      <label for="name" class="textS">年度(西暦)</label>
-      <input type="number" value="2024" min="2000" max="2100" name="year" id="year" class="boxS textS" required />
+      <label class="textS">年度(西暦)</label>
+      <input type="number" th:field="*{fiscalYear}" value="2024" min="2000" max="2100" class="boxS textS" required />
     </div>
     <div class="direct">
-      <label for="name" class="textS">開始日</label>
-      <input type="date" value="2024-04-01" name="start" id="start" class="boxS textS" required />
+      <label class="textS">開始日</label>
+      <input type="date" th:field="*{startDate}" value="2024-04-01" class="boxS textS" required />
+    </div>
+    <div class="direct">
+      <label class="textS">終了日</label>
+      <input type="date" th:field="*{endDate}" value="2023-03-31"  class="boxS textS" required />
+    </div>
+    <div class="direct">
+      <label class="textS">group_id</label>
+      <input type="number" th:field="*{groupId}"class="boxS textS" required />
     </div>
     <div class="direct">
       <input type="submit" value="新規登録" class="buttonL textS borderS" />
