@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS finbookDemo (
     fiscal_year YEAR         NOT NULL,
     start_date  DATE         NOT NULL,
     end_date    DATE         NOT NULL,
-    group_id    INT          NOT NULL
+    group_id    INT          NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (group_id) REFERENCES groupDemo (id)
     ON DELETE CASCADE
