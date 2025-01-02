@@ -3,7 +3,7 @@ package in.techcamp.firstapp;
 import lombok.Data;
 
 @Data
-public class GroupForm {
+public class KaikeiGroupForm {
     private String name;
     private String info;
 }
