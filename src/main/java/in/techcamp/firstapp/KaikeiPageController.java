@@ -15,11 +15,6 @@ public class KaikeiPageController {
         return "finbook";
     }
 
-    @GetMapping("/kaikei/finbookForm")
-    public String showFinbookForm(){
-        return "finbookForm";
-    }
-
     @GetMapping("/kaikei/finsheet")
     public String showFinsheet(){
         return "finsheet";
