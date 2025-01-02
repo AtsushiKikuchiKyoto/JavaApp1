@@ -22,14 +22,14 @@ public class KaikeiGroupController {
     }
 
     @GetMapping("/kaikei/groupForm")
-    public String showGroupForm(@ModelAttribute("groupForm") GroupForm form) {
+    public String showGroupForm(@ModelAttribute("groupForm") KaikeiGroupForm form) {
         return "groupForm";
     }
 
     @PostMapping("/kaikei/groupForm")
-    public String createGroup(GroupForm groupForm, Model model){
+    public String createGroup(KaikeiGroupForm kaikeiGroupForm, Model model){
         try {
-            kaikeiGroupRepository.insert(groupForm.getName(), groupForm.getInfo());
+            kaikeiGroupRepository.insert(kaikeiGroupForm.getName(), kaikeiGroupForm.getInfo());
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "error";
@@ -45,8 +45,8 @@ public class KaikeiGroupController {
     }
 
     @PostMapping("/kaikei/group/{id}/update")
-    public String updateGroup(@PathVariable long id, GroupForm groupForm){
-        kaikeiGroupRepository.update(id, groupForm.getName(), groupForm.getInfo());
+    public String updateGroup(@PathVariable long id, KaikeiGroupForm kaikeiGroupForm){
+        kaikeiGroupRepository.update(id, kaikeiGroupForm.getName(), kaikeiGroupForm.getInfo());
         return  "redirect:/kaikei/finbook/" + id;
     }
 
