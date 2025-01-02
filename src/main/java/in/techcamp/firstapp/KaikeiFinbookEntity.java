@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class KaikeiFinbookEntity {
     private long id;
     private String name;
-    private long fiscalYear;
+    private int fiscalYear;
     private LocalDate startDate;
     private LocalDate endDate;
     private long groupId;

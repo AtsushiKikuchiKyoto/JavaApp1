@@ -22,7 +22,7 @@ PRIMARY KEY (id)
 CREATE TABLE IF NOT EXISTS finbookDemo (
     id          INT          NOT NULL AUTO_INCREMENT,
     name        VARCHAR(256) NOT NULL,
-    fiscal_year YEAR         NOT NULL,
+    fiscal_year INT          NOT NULL,
     start_date  DATE         NOT NULL,
     end_date    DATE         NOT NULL,
     group_id    INT          NOT NULL,
