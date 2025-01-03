@@ -48,7 +48,7 @@
   <ul class="hovee">
     <li class="textM marginPadding buttonL textCenter">-会計を選択-</li>
     <ul th:each="finbook : ${finbookList}" class="hover">
-      <li class="textM marginPadding buttonL textCenter"><a th:href="@{'/kaikei/finsheet/' + ${finbook.id}}" th:text="${finbook.fiscalYear}+'年度'"></a></li>
+      <li class="textM marginPadding buttonL textCenter"><a th:href="@{/kaikei/finsheet/{finbookId}(finbookId=${finbook.id})}" th:text="${finbook.fiscalYear}+'年度'"></a></li>
     </ul>
   </ul>
 </div>
