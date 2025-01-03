@@ -1,6 +1,7 @@
 package in.techcamp.firstapp;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class KaikeiGroupController {
 
     private final KaikeiGroupRepository kaikeiGroupRepository;
+
+    @Autowired
+    private KaikeiGroupService kaikeiGroupService;
 
     @GetMapping("/kaikei/group")
     public String showGroup(Model model){
@@ -39,7 +43,7 @@ public class KaikeiGroupController {
 
     @GetMapping("/kaikei/groupForm/{id}")
     public String updateGroupForm(@PathVariable long id, Model model){
-        var group = kaikeiGroupRepository.findById(id);
+        KaikeiGroupDTO group = kaikeiGroupService.getGroupById(id);
         model.addAttribute("group", group);
         return "groupFormUpdate";
     }
