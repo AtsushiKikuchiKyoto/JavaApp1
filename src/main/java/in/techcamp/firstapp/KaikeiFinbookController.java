@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,8 +21,15 @@ public class KaikeiFinbookController {
 
     @GetMapping("/kaikei/finbook/{id}")
     public String showGroupById(@PathVariable("id") Long id, Model model){
-        var group = kaikeiGroupRepository.findById(id);
-        model.addAttribute("group", group);
+        try {
+            var group = kaikeiGroupRepository.findById(id);
+            model.addAttribute("group", group);
+            var finbookList = kaikeiFinbookRepository.findByGroupId(id);
+            model.addAttribute("finbookList", finbookList);
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", e.getMessage());
+        return "error";
+        }
         return "finbook";
     }
 
