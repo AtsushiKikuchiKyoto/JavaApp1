@@ -15,4 +15,15 @@ public interface KaikeiFinbookRepository {
 
     @Select("SELECT * FROM finbookDemo WHERE group_id = #{id}")
     List<KaikeiFinbookEntity> findByGroupId(@Param("id") Long id);
+
+    @Select("SELECT * FROM finbookDemo WHERE id = #{id}")
+    KaikeiFinbookEntity findById(@Param("id") Long id);
+
+    @Select("SELECT book.id, book.name, book.fiscal_year AS fiscalYear, " +
+            "book.start_date AS startDate, book.end_date AS endDate," +
+            "book.group_id AS groupID, gp.name AS groupName " +
+            "FROM finbookDemo AS book " +
+            "JOIN groupDemo AS gp ON book.group_id = gp.id " +
+            "WHERE book.id = #{id}")
+    FinbookWithGroupDTO findByIdBindGroupName(@Param("id") Long id);
 }

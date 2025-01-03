@@ -13,7 +13,10 @@
 </header>
 
 <div class="page-title">
-  <h1>メニュー</h1>
+  <h1 th:text="${finbook.groupName} + ${finbook.fiscalYear} + '年度会計'"></h1>
+  <p th:text="${finbook.groupName}"></p>
+  <p th:text="${finbook.startDate}"></p>
+  <p th:text="${finbook.fiscalYear}"></p>
 </div>
 
 <div class="center">
