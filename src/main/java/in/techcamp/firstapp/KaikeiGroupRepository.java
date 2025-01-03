@@ -14,7 +14,7 @@ public interface KaikeiGroupRepository {
     List<KaikeiGroupEntity> findAll();
 
     @Select("SELECT * FROM groupDemo WHERE id = #{id}")
-    KaikeiGroupEntity findById(@Param("id") Long id);
+    KaikeiGroupDTO findById(@Param("id") Long id);
 
     @Update("UPDATE groupDemo SET name = #{name}, info = #{info} WHERE id = #{id}")
     void update(long id, String name, String info);

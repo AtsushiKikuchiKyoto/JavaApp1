@@ -19,7 +19,6 @@ public class KaikeiFinsheetController {
     @GetMapping("/kaikei/finsheet/{id}")
     public String showFinsheetById(@PathVariable("id") Long id, Model model){
         FinbookWithGroupDTO finbook = service.getFinbookWithGroupName(id);
-//        var finbook = kaikeiFinbookRepository.findByIdBindGroupName(id);
         model.addAttribute("finbook", finbook);
         return "finsheet";
     }

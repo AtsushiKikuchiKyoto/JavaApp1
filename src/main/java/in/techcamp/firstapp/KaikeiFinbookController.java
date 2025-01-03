@@ -2,6 +2,7 @@ package in.techcamp.firstapp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class KaikeiFinbookController {
     private final KaikeiGroupRepository kaikeiGroupRepository;
     private final KaikeiFinbookRepository kaikeiFinbookRepository;
 
+    @Autowired
+    private KaikeiGroupService kaikeiGroupService;
+
     @GetMapping("/kaikei/finbook/{id}")
     public String showGroupById(@PathVariable("id") Long id, Model model){
         try {
@@ -35,7 +39,8 @@ public class KaikeiFinbookController {
 
     @GetMapping("/kaikei/finbookForm/{id}")
     public String showFinbookForm(@PathVariable("id") Long id, Model model ){
-        var group = kaikeiGroupRepository.findById(id);
+        // var group = kaikeiGroupRepository.findById(id);
+        KaikeiGroupDTO group = kaikeiGroupService.getGroupById(id);
 
         LocalDate today = LocalDate.now();
         int currentYear = today.getYear();
