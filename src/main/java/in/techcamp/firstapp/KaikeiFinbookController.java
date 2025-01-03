@@ -72,15 +72,18 @@ public class KaikeiFinbookController {
         return  "redirect:/kaikei";
     }
 
-    @PostMapping("/kaikei/finbook/{id}/delete")
-    public String deleteFinbook(@PathVariable Long id, Model model ){
+    @PostMapping("/kaikei/finbook/{finbookId}/delete/{groupId}")
+    public String deleteFinbook(
+            @PathVariable Long finbookId,
+            @PathVariable Long groupId,
+            Model model ){
         try {
-            kaikeiFinbookRepository.deleteById(id);
+            kaikeiFinbookRepository.deleteById(finbookId);
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "error";
         }
-        return  "redirect:/kaikei/group";
+        return  "redirect:/kaikei/finbook/" + groupId;
     }
 
 }
