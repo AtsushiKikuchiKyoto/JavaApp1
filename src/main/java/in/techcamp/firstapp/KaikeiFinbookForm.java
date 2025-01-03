@@ -1,7 +1,6 @@
 package in.techcamp.firstapp;
 
 import lombok.Data;
-
 import java.time.LocalDate;
 
 @Data

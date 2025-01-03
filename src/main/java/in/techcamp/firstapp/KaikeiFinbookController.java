@@ -1,5 +1,7 @@
 package in.techcamp.firstapp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class KaikeiFinbookController {
 
+    private static final Logger log = LoggerFactory.getLogger(KaikeiFinbookController.class);
     private final KaikeiGroupRepository kaikeiGroupRepository;
     private final KaikeiFinbookRepository kaikeiFinbookRepository;
 
@@ -25,12 +28,24 @@ public class KaikeiFinbookController {
     }
 
     @GetMapping("/kaikei/finbookForm/{id}")
-    public String showFinbookForm(@PathVariable("id") Long id,
-                                  Model model ,
-                                  @ModelAttribute("finbookForm") KaikeiFinbookForm form ){
+    public String showFinbookForm(@PathVariable("id") Long id, Model model ){
         var group = kaikeiGroupRepository.findById(id);
+
+        LocalDate today = LocalDate.now();
+        int currentYear = today.getYear();
+
+        var form = new KaikeiFinbookForm();
         form.setName(group.getName());
+        form.setGroupId(group.getId());
+        form.setFiscalYear(currentYear);
+        form.setStartDate(LocalDate.of(currentYear, 4, 1));
+        form.setEndDate(LocalDate.of(currentYear + 1, 3, 31));
+
+        log.info("Start Date: {}", form.getStartDate());
+        log.info("End Date: {}", form.getEndDate());
+
         model.addAttribute("group", group);
+        model.addAttribute("finbookForm", form);
         return "finbookForm";
     }
 
