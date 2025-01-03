@@ -32,7 +32,7 @@
       <td class="textS" th:text="${finbook.startDate}"></td>
       <td class="textS" th:text="${finbook.endDate}"></td>
       <td class="textS" th:text="${finbook.groupName}"></td>
-      <td class="textS"><div class="buttonSS"><a th:href="@{/kaikei/}">会計情報の削除</a></div></td>
+      <td><form method="post"><button type="submit" th:formaction="@{/kaikei/finbook/{finbookId}/delete(finbookId=${finbook.id})}" class="buttonSS borderS textS">会計情報の削除</button></form></td>
     </tr>
   </table>
 </div>

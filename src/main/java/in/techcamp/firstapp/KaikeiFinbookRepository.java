@@ -1,9 +1,6 @@
 package in.techcamp.firstapp;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,4 +23,7 @@ public interface KaikeiFinbookRepository {
             "JOIN groupDemo AS gp ON book.group_id = gp.id " +
             "WHERE book.id = #{id}")
     FinbookWithGroupDTO findByIdBindGroupName(@Param("id") Long id);
+
+    @Delete("DELETE FROM finbookDemo WHERE id = #{id}")
+    void deleteById(Long id);
 }
