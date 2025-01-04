@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 @AllArgsConstructor
 public class KaikeiGroupController {
@@ -20,7 +22,7 @@ public class KaikeiGroupController {
 
     @GetMapping("/kaikei/group")
     public String showGroup(Model model){
-        var groupList = kaikeiGroupRepository.findAll();
+        List<KaikeiGroupDTO> groupList = kaikeiGroupService.getGroupAll();
         model.addAttribute("groupList", groupList);
         return "group";
     }
