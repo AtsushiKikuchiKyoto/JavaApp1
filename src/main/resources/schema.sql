@@ -18,3 +18,16 @@ CREATE TABLE IF NOT EXISTS groupDemo (
     info   VARCHAR(256) NOT NULL,
 PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS finbookDemo (
+    id          INT          NOT NULL AUTO_INCREMENT,
+    name        VARCHAR(256) NOT NULL,
+    fiscal_year INT          NOT NULL,
+    start_date  DATE         NOT NULL,
+    end_date    DATE         NOT NULL,
+    group_id    INT          NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (group_id) REFERENCES groupDemo (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);

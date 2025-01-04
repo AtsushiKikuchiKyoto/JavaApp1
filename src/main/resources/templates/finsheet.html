@@ -13,7 +13,28 @@
 </header>
 
 <div class="page-title">
-  <h1>メニュー</h1>
+  <h1 th:text="${finbook.groupName} + ${finbook.fiscalYear} + '年度会計'"></h1>
+</div>
+
+<div class="center">
+  <table>
+    <tr>
+      <th class="textS">会計帳簿</th>
+      <th class="textS">年度</th>
+      <th class="textS">開始日</th>
+      <th class="textS">終了日</th>
+      <th class="textS">団体名</th>
+      <td class="textS"><div class="buttonSS"><a th:href="@{/kaikei/}">会計情報の編集</a></div></td>
+    </tr>
+    <tr>
+      <td class="textS" th:text="${finbook.name}"></td>
+      <td class="textS" th:text="${finbook.fiscalYear}"></td>
+      <td class="textS" th:text="${finbook.startDate}"></td>
+      <td class="textS" th:text="${finbook.endDate}"></td>
+      <td class="textS" th:text="${finbook.groupName}"></td>
+      <td><form method="post"><button type="submit" th:formaction="@{/kaikei/finbook/{finbookId}/delete/{groupId}(finbookId=${finbook.id}, groupId=${finbook.groupId})}" class="buttonSS borderS textS">会計情報の削除</button></form></td>
+    </tr>
+  </table>
 </div>
 
 <div class="center">

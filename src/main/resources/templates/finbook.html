@@ -39,17 +39,18 @@
 </div>
 
 <div class="center">
-  <a th:href="@{/kaikei/finbookForm}" class="buttonL center">
+  <a th:href="@{/kaikei/finbookForm/{groupId}(groupId=${group.id})}" class="buttonL center">
     <p class="textM">会計の新規登録</p>
   </a>
 </div>
 
 <div class="center">
-  <select name="" id="" class="textM marginPadding buttonL textCenter">
-    <option value="">-会計を選択-</option>
-    <option value="2024">2024年度会計</option>
-    <option value="2023">2023年度会計</option>
-  </select>
+  <ul class="hovee">
+    <li class="textM marginPadding buttonL textCenter">-会計を選択-</li>
+    <ul th:each="finbook : ${finbookList}" class="hover">
+      <li class="textM marginPadding buttonL textCenter"><a th:href="@{/kaikei/finsheet/{finbookId}(finbookId=${finbook.id})}" th:text="${finbook.fiscalYear}+'年度'"></a></li>
+    </ul>
+  </ul>
 </div>
 
 </body>
